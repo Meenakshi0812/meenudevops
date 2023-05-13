@@ -1,0 +1,7 @@
+first, you need to create linux EC2 instance and follow the basic steps. 
+after creating linux Ec2 instance , open mobexterm and click on new seesion-->SSH-->enter the ip address which you have createdin linux ec2 instance and enter username and choose the option for upload keypair and click on OK.
+now enter the following command to install git
+#sudo yum install git
+it will download all the packages and git will be installed
+to check the vesrion enter the command
+#git --version.

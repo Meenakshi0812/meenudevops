@@ -1,0 +1,6 @@
+projectKey=com.jcg.maven:MavenHelloWorldProject
+serverUrl=http://localhost:9000
+serverVersion=7.0.0.36138
+dashboardUrl=http://localhost:9000/dashboard/index/com.jcg.maven:MavenHelloWorldProject
+ceTaskId=AX1hAgLMyahRqB0Rqw91
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AX1hAgLMyahRqB0Rqw91

@@ -1,0 +1,43 @@
+# sudo yum update
+# sudo su –
+# hostname tomcat
+# sudo su –
+# cd /opt
+Download sonarqube from official website Apache Tomcat® - Apache Tomcat 10 Software Downloads
+# wget <URL>
+# tar -xvzf  <tomcatFilename>
+#sudo mv apache-tomcat-10.0.27.tar.gz tomcat10     ( sudo mv <oldfilename> <newfilename> )
+# ls
+# cd tomcat
+# cd bin
+# ./startup.sh
+Here we are getting some error due to we are not installed jdk yet.
+#sudo amazon-linux-extras install epel
+# sudo amazon-linux-extras install java -openjdk11
+# ./startup.sh
+Now tomcat started. Now open your tomcat server in browser using ipaddress followed by 8080 port.
+Click on manager app. You will get error . because it allows only local browser. To address this issue we need to find context.xml file.
+# sudo find / -name context.xml
+It displays context.xml files we need to modify these 2 files.
+<!-- <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+  allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />  -->
+we just need to add comment 
+<!--   ……………….
+   ……………   -->
+
+Click on esc -> wq!
+# ./startup.sh
+Now restart the server , now you doesn’t get any error but it asking login credentials .
+# cd ..
+# cd conf
+# ls
+# vi tomcat-users.xml
+In users.xml we can set username and password.
+<!--
+<user username="admin" password=" <must-be-changed> " roles="manager-gui"/>
+  <user username="robot" password=" <must-be-changed>" roles="manager-script"/>
+-->
+We need to remove ( <!--                                                  --> )
+Now put username and password of ur choice.
+# ./startup.sh
+

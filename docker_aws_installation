@@ -1,0 +1,13 @@
+first, you need to create linux EC2 instance and follow the basic steps.
+after creating linux Ec2 instance ,copy the ip address and open the putty enter ip address and click on ssh-->Auth , now browse for ppk file( we have downloaded normal pem file which needs to be convert into ppk file using puttyGen ) upload click on ok.
+now login as ec2-user(default user for all the ec2 instances)
+now before downloading docker file check is there any updates for this enter command as follows
+      # sudo yum update
+after updating , now download the docker using the command
+     # sudo yum install docker
+after succefully installed , check for vesrion to check whether succesfully iinstalled or not by using command
+     #docker -v
+to check the status of docker file enter the command,
+     #sudo service docker status
+to start the docker service use the following command
+     # sudo service docker start

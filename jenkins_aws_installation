@@ -1,0 +1,43 @@
+pre-requisites
+first, you need to create linux EC2 instance and follow the basic steps. and in security group make sure to open port number 8080 .( for this add rule-->custom tcp-->enter the port number as 8080)
+after creating linux Ec2 instance , open mobexterm and click on new seesion-->SSH-->enter the ip address which you have createdin linux ec2 instance and enter username and choose the option for upload keypair and click on OK.
+Now in browser open the link https://pkg.jenkins.io/redhat-stable/.
+Enter the following command in mobexterm ( you need to have a root user to perform all these commands , run command to get root access  #sudo su )
+# sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+  sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+  then it will download the all packages needed for jenkins.
+  Now enter the 2nd command , i.e
+  # sudo yum install epel-release
+  then you will get output as follows
+ ###  Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+You need to be root to perform this command. ###
+enter the following commands to load extras
+# sudo amazon-linux-extras install epel
+the it will load all the linux extras, then install now open jdk11 .for the follow the command
+# sudo amazon-linux-extras install java-openjdk11
+upto this java jdk11 is installed.
+now we need to install jenkins for this follow the command
+#sudo yum install jenkins
+it wil complete the jenkins installation
+to check the jenkins server staus , use the following command
+# sudo service jenkins status
+then you will get the output as follows
+### jenkins.service - LSB: Jenkins Automation Server
+   Loaded: loaded (/etc/rc.d/init.d/jenkins; bad; vendor preset: disabled)
+   Active: inactive (dead)
+     Docs: man:systemd-sysv-generator(8)  ###
+this means jenkins server not started yet so you need to perform start operation
+# sudo service jenkins start
+now, its going to start jenkins server.
+Now in browser open jenkins server for this you need to enter publicip address:8080
+ex: 18.233.147.176:8080(this for my ip addres )
+for the first time it will ask for initialAdminPassword which will be available in the path(/var/lib/jenkins/secrets/initialAdminPassword).enter the command
+#sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+it will display the intal password , copy the password and enter in the jenkins server and click on continue.
+now you will get 2 options : 1.install suggested plugins 2. select plugins to install based on your choice you can choose any option.
+then it will ask to set username and password enter those details and click on save and continue.
+now jenkis dashboard page will display this is the process for installing ythe jenkins.
+
+
+
+  

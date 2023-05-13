@@ -1,0 +1,1 @@
+yum list | grep jdk     #to check list of available java versions
